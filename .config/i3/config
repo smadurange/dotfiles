@@ -191,3 +191,8 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle && $refr
 for_window [class=".*"] border pixel 0
 gaps inner 10
 gaps outer 0
+
+# Workspace assignments
+assign [class="^qutebrowser$"] 2
+assign [class="code"] 3
+assign [class="Vivaldi"] 4
