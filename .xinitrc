@@ -34,8 +34,6 @@ fi
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-~/.fehbg &
-
 eval $(ssh-agent)
 
 exec i3
