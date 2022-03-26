@@ -1,6 +1,5 @@
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=2
+set shiftwidth=2
 set nu
 
 syntax on
@@ -8,10 +7,5 @@ syntax on
 set background=dark
 colorscheme murphy
 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+map <C-K> :py3f /usr/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /usr/share/clang/clang-format.py<cr>
