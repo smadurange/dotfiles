@@ -1,0 +1,18 @@
+# imap settings
+set imap_user=xxxx
+set imap_pass=`pass show microsoft`
+set folder=imaps://outlook.office365.com:993
+set from=xxxx
+set realname=xxxxx
+
+# smtp settings
+set smtp_url=smtp://$imap_user:$imap_pass@smtp.office365.com:587
+
+# mailboxes
+set spoolfile=+INBOX
+mailboxes = +INBOX
+set record=+Sent
+set postponed=+Drafts
+
+# hooks
+account-hook $folder "set imap_user=xxxx imap_pass=`pass show microsoft`"

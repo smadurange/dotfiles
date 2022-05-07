@@ -1,0 +1,24 @@
+#imapset tings
+set timeout=15
+set mail_check=90
+set imap_keepalive=180
+set header_cache=~/.cache/mutt
+set message_cachedir=~/.cache/mutt
+set imap_check_subscribed=yes
+set imap_list_subscribed=yes
+unset imap_passive
+
+#smtpset tings
+set ssl_force_tls=yes
+unset ssl_starttls
+
+#sidebar
+set sidebar_width=20
+set sidebar_visible=yes
+
+#sorting
+set sort=reverse-date
+
+# outlook
+source "~/.mutt/outlook"
+folder-hook $folder 'source ~/.mutt/outlook'

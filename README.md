@@ -1,5 +1,9 @@
 # Arch Linux Configuration
 
-Configuration files for a minimal Arch Linux setup with X and i3 (gaps) and Urxvt.
+Configuration files for a minimal Arch Linux setup with
+ - X
+ - i3 gaps
+ - urxvt
+ - mutt
 
 ![screenshot](img/screenshot.png)
