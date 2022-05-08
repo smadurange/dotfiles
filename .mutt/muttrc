@@ -1,4 +1,4 @@
-#imapset tings
+# imap settings
 set timeout=15
 set mail_check=90
 set imap_keepalive=180
@@ -8,17 +8,46 @@ set imap_check_subscribed=yes
 set imap_list_subscribed=yes
 unset imap_passive
 
-#smtpset tings
+# smtp settings
 set ssl_force_tls=yes
 unset ssl_starttls
 
-#sidebar
+# sidebar
 set sidebar_width=20
 set sidebar_visible=yes
 
-#sorting
+# sorting
 set sort=reverse-date
 
 # outlook
 source "~/.mutt/outlook"
 folder-hook $folder 'source ~/.mutt/outlook'
+
+# key bindings
+# https://ryanlue.com/posts/2017-05-21-mutt-the-vim-way
+bind	generic,pager	g	noop
+bind	generic,index,pager	d	noop
+bind	pager	r	noop
+bind	generic	s noop
+bind	generic	c	noop
+bind	generic	t	noop
+
+bind	generic,index,pager	\Cw	next-page
+bind	generic,index,pager	\Cb	previous-page
+bind	generic	gg	first-entry
+bind	generic	G	last-entry
+bind	pager	gg	top
+bind	pager	G	bottom
+bind	pager,index	N	search-opposite
+
+macro	index,pager	gi	"<change-folder>=INBOX<enter>"	"open inbox"
+macro	index,pager	gd	"<change-folder>=Drafts<enter>"	"open drafts"
+macro	index,pager	gs	"<change-folder>=Sent<enter>"	"open sent"
+macro	index,pager	go	"<change-folder>=Outbox<enter>"	"open outbox"
+macro	index,pager	gj	"<change-folder>=Junk<enter>"	"open junk"
+macro	index,pager	gt	"<change-folder>$trash<enter>"	"open trash"
+macro	index,pager	gf	"<change-folder>?"	"open mailbox..."
+
+bind	index,pager	ra	group-reply
+macro	index,pager	dd	"<delete-message><sync-mailbox>"	"move message to trash"
+macro	index,pager	dt	"<delete-thread><sync-mailbox>"     
