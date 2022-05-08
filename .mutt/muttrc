@@ -21,7 +21,7 @@ set index_format="%2C | %S [%D] %-30.30F %s"
 
 # folder hooks
 source "~/.mutt/outlook"
-folder-hook outlook 'source ~/.mutt/outlook'
+folder-hook $folder 'source ~/.mutt/outlook'
 
 # quix
 source "~/.mutt/quix"
