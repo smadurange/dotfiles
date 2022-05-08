@@ -19,13 +19,17 @@ set sort=reverse-date
 set date_format="%Y-%m-%d %T"
 set index_format="%2C | %S [%D] %-30.30F %s"
 
-# outlook
+# folder hooks
 source "~/.mutt/outlook"
-folder-hook $folder 'source ~/.mutt/outlook'
+folder-hook outlook 'source ~/.mutt/outlook'
+
+# quix
+source "~/.mutt/quix"
+folder-hook quix 'source ~/.mutt/quix'
 
 # key bindings
 # https://ryanlue.com/posts/2017-05-21-mutt-the-vim-way
-bind	generic,pager	g	noop
+bind	generic,index,pager	g	noop
 bind	generic,index,pager	d	noop
 bind	pager	r	noop
 bind	generic	s noop
@@ -34,6 +38,7 @@ bind	generic	t	noop
 
 bind	generic,index,pager	\Cw	next-page
 bind	generic,index,pager	\Cb	previous-page
+bind	index	M	imap-fetch-mail
 bind	generic	gg	first-entry
 bind	generic	G	last-entry
 bind	pager	gg	top
@@ -51,3 +56,7 @@ macro	index,pager	gf	"<change-folder>?"	"open mailbox..."
 bind	index,pager	ra	group-reply
 macro	index,pager	dd	"<delete-message><sync-mailbox>"	"move message to trash"
 macro	index,pager	dt	"<delete-thread><sync-mailbox>"     
+
+macro	index 'c'	'<change-folder>?<change-dir><home>^K=<enter>'
+macro	index,pager	<f2>	'<sync-mailbox><enter-command>source ~/.mutt/outlook<enter><change-folder>!<enter>'
+macro	index,pager	<f3>	'<sync-mailbox><enter-command>source ~/.mutt/quix<enter><change-folder>!<enter>'
