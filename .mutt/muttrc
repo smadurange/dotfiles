@@ -6,11 +6,23 @@ set header_cache=~/.cache/mutt
 set message_cachedir=~/.cache/mutt
 set imap_check_subscribed=yes
 set imap_list_subscribed=yes
+set imap_user=***
+set imap_pass=`pass show ***`
+set folder=imaps://outlook.office365.com:993
+set from=***
+set realname="Sadeep Madurange"
 unset imap_passive
 
 # smtp settings
+set smtp_url=smtp://$imap_user:$imap_pass@smtp.office365.com:587
 set ssl_force_tls=yes
 unset ssl_starttls
+
+# mailboxes
+set spoolfile=+INBOX
+mailboxes = +INBOX
+set record=+Sent
+set postponed=+Drafts
 
 # index
 set sidebar_width=20
@@ -18,14 +30,6 @@ set sidebar_visible=yes
 set sort=reverse-date
 set date_format="%Y-%m-%d %T"
 set index_format="%2C | %S [%D] %-30.30F %s"
-
-# folder hooks
-source "~/.mutt/outlook"
-folder-hook $folder 'source ~/.mutt/outlook'
-
-# quix
-source "~/.mutt/quix"
-folder-hook quix 'source ~/.mutt/quix'
 
 # key bindings
 # https://ryanlue.com/posts/2017-05-21-mutt-the-vim-way
@@ -55,7 +59,3 @@ macro	index,pager	gf	"<change-folder>?"	"open mailbox..."
 
 macro	index,pager	dd	"<delete-message><sync-mailbox>"	"move message to trash"
 macro	index,pager	dt	"<delete-thread><sync-mailbox>"     
-
-macro	index 'c'	'<change-folder>?<change-dir><home>^K=<enter>'
-macro	index,pager	<f2>	'<sync-mailbox><enter-command>source ~/.mutt/outlook<enter><change-folder>!<enter>'
-macro	index,pager	<f3>	'<sync-mailbox><enter-command>source ~/.mutt/quix<enter><change-folder>!<enter>'
