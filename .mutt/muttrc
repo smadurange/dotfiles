@@ -12,12 +12,12 @@ unset imap_passive
 set ssl_force_tls=yes
 unset ssl_starttls
 
-# sidebar
+# index
 set sidebar_width=20
 set sidebar_visible=yes
-
-# sorting
 set sort=reverse-date
+set date_format="%Y-%m-%d %T"
+set index_format="%2C | %S [%d] %-30.30F %s"
 
 # outlook
 source "~/.mutt/outlook"
