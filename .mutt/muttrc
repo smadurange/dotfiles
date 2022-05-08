@@ -17,7 +17,7 @@ set sidebar_width=20
 set sidebar_visible=yes
 set sort=reverse-date
 set date_format="%Y-%m-%d %T"
-set index_format="%2C | %S [%d] %-30.30F %s"
+set index_format="%2C | %S [%D] %-30.30F %s"
 
 # outlook
 source "~/.mutt/outlook"
