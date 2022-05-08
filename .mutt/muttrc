@@ -1,5 +1,6 @@
 # imap settings
 set timeout=15
+set sleep_time=0
 set mail_check=90
 set imap_keepalive=180
 set header_cache=~/.cache/mutt
