@@ -19,6 +19,9 @@ set smtp_url=smtp://$imap_user:$imap_pass@smtp.office365.com:587
 set ssl_force_tls=yes
 unset ssl_starttls
 
+# signature
+set signature="~/.mutt/.signature"
+
 # mailboxes
 set spoolfile=+INBOX
 mailboxes = +INBOX
