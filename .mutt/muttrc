@@ -22,6 +22,12 @@ unset ssl_starttls
 # signature
 set signature="~/.mutt/.signature"
 
+# html
+set mailcap_path=~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>firefox ~/.cache/mutt/mail.html<enter>" 
+
 # mailboxes
 set spoolfile=+INBOX
 mailboxes = +INBOX
