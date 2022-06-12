@@ -69,3 +69,6 @@ macro	index,pager	gf	"<change-folder>?"	"open mailbox..."
 
 macro	index,pager	dd	"<delete-message><sync-mailbox>"	"move message to trash"
 macro	index,pager	dt	"<delete-thread><sync-mailbox>"     
+
+# encryption
+source ~/.mutt/gpg.rc
