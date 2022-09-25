@@ -72,3 +72,5 @@ macro	index,pager	dt	"<delete-thread><sync-mailbox>"
 
 # encryption
 source ~/.mutt/gpg.rc
+
+unset markers
