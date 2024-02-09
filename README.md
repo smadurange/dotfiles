@@ -1,5 +1,5 @@
 ## Overview
 
-Configuration files for a minimal Linux setup with X, i3 gaps, urxvt, neomutt, vim.
+Configuration files of my currrent OpenBSD setup with X, i3, XTerm, mutt, vim, etc.
 
 ![screenshot](img/screenshot.png)
