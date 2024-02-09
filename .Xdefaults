@@ -1,0 +1,15 @@
+! $OpenBSD: dot.Xdefaults,v 1.3 2014/07/10 10:22:59 jasper Exp $
+XTerm*loginShell:true
+
+XTerm*locale: false
+XTerm*utf-8: true
+
+XTerm*scrollBar: false
+XTerm*internalBorder: 10
+
+XTerm*background: rgb:0000/0000/0200
+XTerm*foreground: #25eb66
+XTerm*cursorColor: #25eb66
+
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceSize: 10

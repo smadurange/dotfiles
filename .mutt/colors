@@ -1,0 +1,23 @@
+# -*-muttrc-*-
+
+# Palette for use with the Linux console.  Black background.
+
+color hdrdefault default default
+color quoted default default
+color signature default default
+color attachment default default
+color prompt default default
+color message default default
+color error default default
+color indicator reverse default default
+color status reverse default default
+color tree default default
+color normal default default
+color markers default default
+color search default default
+color tilde default default
+color index default default ~F
+color index default default "~N|~O"
+
+# color body brightwhite black '\*+[^*]+\*+'
+# color body brightwhite black '_+[^_]+_+'

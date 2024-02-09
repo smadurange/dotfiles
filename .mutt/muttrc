@@ -1,3 +1,6 @@
+unset markers
+set editor="vim +':set tw=72'"
+
 # imap settings
 set timeout=15
 set sleep_time=0
@@ -7,20 +10,29 @@ set header_cache=~/.cache/mutt
 set message_cachedir=~/.cache/mutt
 set imap_check_subscribed=yes
 set imap_list_subscribed=yes
-set imap_user=***
-set imap_pass=`pass show ***`
-set folder=imaps://outlook.office365.com:993
-set from=***
+set imap_user=sadeep@example.com
+set imap_pass=`pass show mail`
+set folder=imaps://imap.example.com:993
+set from=sadeep@example.com
 set realname="Sadeep Madurange"
 unset imap_passive
 
 # smtp settings
-set smtp_url=smtp://$imap_user:$imap_pass@smtp.office365.com:587
+set smtp_pass=$imap_pass
+set smtp_url=smtp://$imap_user@smtp.example.com:587
 set ssl_force_tls=yes
 unset ssl_starttls
 
 # signature
 set signature="~/.mutt/.signature"
+
+# aliases
+set alias_file = "~/.mutt/aliases"
+set sort_alias = alias
+source $alias_file
+
+# colours
+source ~/.mutt/colors
 
 # html
 set mailcap_path=~/.mutt/mailcap
@@ -30,16 +42,18 @@ macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<
 
 # mailboxes
 set spoolfile=+INBOX
-mailboxes = +INBOX
+mailboxes +INBOX
 set record=+Sent
 set postponed=+Drafts
+set trash=+Trash
 
 # index
-set sidebar_width=20
+set sidebar_width=12
 set sidebar_visible=yes
 set sort=reverse-date
 set date_format="%Y-%m-%d %T"
-set index_format="%2C | %S [%D] %-30.30F %s"
+set index_format="%2C | %S [%D] %-30.30F %-55.50s %6c"
+set mark_old=no
 
 # key bindings
 # https://ryanlue.com/posts/2017-05-21-mutt-the-vim-way
@@ -50,21 +64,22 @@ bind	generic	s noop
 bind	generic	c	noop
 bind	generic	t	noop
 
-bind	generic,index,pager	\Cw	next-page
-bind	generic,index,pager	\Cb	previous-page
+bind	generic,index,pager	J	next-page
+bind	generic,index,pager	K	previous-page
+bind  pager j next-line
+bind  pager k previous-line
 bind	generic	gg	first-entry
 bind	generic	G	last-entry
 bind	pager	gg	top
 bind	pager	G	bottom
-bind	pager,index	N	search-opposite
 bind	index,pager	R	group-reply
+bind index,pager B sidebar-toggle-visible
 
 macro	index,pager	gi	"<change-folder>=INBOX<enter>"	"open inbox"
 macro	index,pager	gd	"<change-folder>=Drafts<enter>"	"open drafts"
 macro	index,pager	gs	"<change-folder>=Sent<enter>"	"open sent"
-macro	index,pager	go	"<change-folder>=Outbox<enter>"	"open outbox"
-macro	index,pager	gj	"<change-folder>=Junk<enter>"	"open junk"
-macro	index,pager	gt	"<change-folder>$trash<enter>"	"open trash"
+macro	index,pager	gj	"<change-folder>=Spam<enter>"	"open junk"
+macro	index,pager	gt	"<change-folder>=Trash<enter>"	"open trash"
 macro	index,pager	gf	"<change-folder>?"	"open mailbox..."
 
 macro	index,pager	dd	"<delete-message><sync-mailbox>"	"move message to trash"
@@ -72,5 +87,3 @@ macro	index,pager	dt	"<delete-thread><sync-mailbox>"
 
 # encryption
 source ~/.mutt/gpg.rc
-
-unset markers
