@@ -10,11 +10,11 @@ set header_cache=~/.cache/mutt
 set message_cachedir=~/.cache/mutt
 set imap_check_subscribed=yes
 set imap_list_subscribed=yes
-set imap_user=sadeep@example.com
-set imap_pass=`pass show mail`
+set imap_user=me@example.com
+set imap_pass=`pass show imap-pass`
 set folder=imaps://imap.example.com:993
-set from=sadeep@example.com
-set realname="Sadeep Madurange"
+set from=me@example.com
+set realname="John Doe"
 unset imap_passive
 
 # smtp settings
@@ -82,8 +82,8 @@ macro	index,pager	gj	"<change-folder>=Spam<enter>"	"open junk"
 macro	index,pager	gt	"<change-folder>=Trash<enter>"	"open trash"
 macro	index,pager	gf	"<change-folder>?"	"open mailbox..."
 
-macro	index,pager	dd	"<delete-message><sync-mailbox>"	"move message to trash"
-macro	index,pager	dt	"<delete-thread><sync-mailbox>"     
+macro	index,pager	dd	"<delete-message>"	"move message to trash"
+macro	index,pager	dt	"<delete-thread>"     
 
 # encryption
 source ~/.mutt/gpg.rc
