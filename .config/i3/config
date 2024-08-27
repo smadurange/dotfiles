@@ -191,7 +191,7 @@ bar {
 }
 
 for_window [class=".*"] border pixel 0
-gaps inner 6
+gaps inner 5
 gaps outer 0
 
 assign [class="firefox"] 2
